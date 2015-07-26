@@ -7,5 +7,6 @@ angular.module("yetibox").config(['$stateProvider', '$urlRouterProvider',
                 url: "/",
                 template: UiRouter.template('home.html')
             });
+
     }
 ]);
