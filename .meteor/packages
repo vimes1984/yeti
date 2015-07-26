@@ -9,3 +9,6 @@ autopublish
 insecure
 urigo:angular
 matthew:foundation5-sass
+orionjs:core
+fortawesome:fontawesome
+rwatts:orionjs-foundation
