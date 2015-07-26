@@ -72,6 +72,7 @@ orionjs:collections@1.2.0
 orionjs:config@1.2.0
 orionjs:core@1.2.0
 orionjs:dictionary@1.2.0
+orionjs:filesystem@1.0.2
 orionjs:lang-en@1.2.0
 random@1.0.3
 reactive-dict@1.1.0
@@ -99,6 +100,8 @@ url@1.0.4
 useraccounts:bootstrap@1.8.1
 useraccounts:core@1.10.0
 useraccounts:foundation@1.10.0
+vsivsi:file-collection@1.1.5
+vsivsi:orion-file-collection@0.1.0
 webapp@1.2.0
 webapp-hashing@1.0.3
 zimme:active-route@2.0.4_1
