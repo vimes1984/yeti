@@ -1,9 +1,18 @@
 <body ng-app="yetibox" ng-controller="maincontroller">
   {{initFoundation}}
-  {{> loginButtons align="right"}} 
+  {{> loginButtons align="right"}}
+  {{> example}}
+  {{> pagesSimple}}
 </body>
 
 
 <template name="example">
   {{ dict 'site.description' 'No description' }}
+</template>
+
+<template name="pagesSimple">
+    <h1 class="title">{{ title }}</h1>
+    <div class="content">
+        {{{ content }}}
+    </div>
 </template>
