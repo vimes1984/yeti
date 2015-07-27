@@ -1,5 +1,15 @@
 Router.route('/(.*)', function(){
-  this.render('mainview');
+  this.render('index');
+});
+// all of these are here so our routing doesn't interfere with the admin stuff
+angular.module("yetibox").run(function($rootScope, $location, $state) {
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+    //This is to not interfere with Houston Admin
+    console.log()
+    if(toState.name == "admin1" || toState.name == "admin2"){
+      event.preventDefault();
+    }
+  });
 });
 angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider){
@@ -37,15 +47,14 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
         url: '/universes/helpglad',
         templateUrl: 'client/templates/universes/helpglad.ng.html',
         controller: 'helpgladCtrl'
+      })
+      // These routes belong to Houston Admin
+      .state('admin1',{
+        url: '/admin',
+        template: "<h1>Doesn't render, this is Houstons domain</h1>"
+      })
+      .state('admin2',{
+        url: '/admin/*path',
+        template: "<h1>Doesn't render, this is Houstons domain</h1>"
       });
 }]);
-// all of these are here so our routing doesn't interfere with the admin stuff
-angular.module("yetibox").run(function($rootScope, $location, $state) {
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    //This is to not interfere with Houston Admin
-    console.log()
-    if(toState.name == "admin1" || toState.name == "admin2"){
-      event.preventDefault();
-    }
-  });
-});
