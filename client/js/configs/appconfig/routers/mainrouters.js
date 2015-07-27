@@ -1,25 +1,25 @@
 Router.route('/(.*)', function(){
-  this.render('index');
+  this.render('mainview');
 });
 // all of these are here so our routing doesn't interfere with the admin stuff
-angular.module("yetibox").run(function($rootScope, $location, $state) {
+/*angular.module("yetibox").run(function($rootScope, $location, $state) {
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
     //This is to not interfere with Houston Admin
-    console.log()
+    console.log(toState);
     if(toState.name == "admin1" || toState.name == "admin2"){
       event.preventDefault();
     }
   });
-});
+});*/
 angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider){
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('home', {
-      url: '/home',
+      url: '/',
       templateUrl: 'client/templates/home.ng.html',
       controller: 'HomeCtrl'
     })
