@@ -1,43 +1,46 @@
 <template name="topbar">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">{{ dict 'site.title' 'No Title set in backend' }}</a></h1>
-      </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="has-dropdown">
-          <a href="#">The universes</a>
-          <ul class="dropdown">
-            <li class="has-dropdown">
-              <a href="#">Survival</a>
-              <ul class="dropdown">
-                <li><a href="/universes/whatsurvival">What is Survival</a></li>
-                <li><a href="/universes/helpsurvival">Help for Survival</a></li>
-              </ul>
-            </li>
-            <li class="has-dropdown">
-              <a href="#">Gladiator</a>
-              <ul class="dropdown">
-                <li><a href="/universes/gladwhatpvp">What is PVP</a></li>
-                <li><a href="/universes/helpglad">Help for Gladiator</a></li>
-              </ul>
-            </li>
-          </ul>
+  <div class="sticky">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/"><img src="{{ dict 'site.logo' }}" alt="{{ dict 'site.title' }}"></a></h1>
         </li>
-        <li><a href="/cruthadaire">Cruthadaire</a></li>
-        <li><a href="/blog">Blog</a></li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li>{{> loginButtons}}</li>
-      </ul>
-    </section>
-  </nav>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#">The universes</a>
+            <ul class="dropdown">
+              <li class="has-dropdown">
+                <a href="#">Survival</a>
+                <ul class="dropdown">
+                  <li><a href="/universes/whatsurvival">What is Survival</a></li>
+                  <li><a href="/universes/helpsurvival">Help for Survival</a></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Gladiator</a>
+                <ul class="dropdown">
+                  <li><a href="/universes/gladwhatpvp">What is PVP</a></li>
+                  <li><a href="/universes/helpglad">Help for Gladiator</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/admin/my-account">Admin</a></li>
+          <li><a href="/cruthadaire">Cruthadaire</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li>{{> loginButtons}}</li>
+        </ul>
+      </section>
+    </nav>
+  </div>
 </template>

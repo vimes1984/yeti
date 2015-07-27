@@ -1,0 +1,16 @@
+<template name="mainview">
+  {{> topbar}}
+  <div class="row">
+    <div class="large-12 columns">
+        <h3>All Pages</h3>
+      {{# each pages }}
+        <a href="{{ path }}">
+          {{ title }}
+        </a>
+      {{/ each }}
+      <div ui-view></div>
+    </div>
+  </div>
+  {{> footer}}
+  {{initFoundation}}
+</template>
