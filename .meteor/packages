@@ -9,13 +9,9 @@ autopublish
 insecure
 urigo:angular
 matthew:foundation5-sass
-orionjs:core
 fortawesome:fontawesome
-rwatts:orionjs-foundation
 angularui:angular-ui-router
 urigo:angular-ui-router
-vsivsi:orion-file-collection
-nicolaslopezj:orion-ga
 accounts-facebook
 google
 twitter
@@ -24,5 +20,4 @@ accounts-password
 accounts-google
 accounts-twitter
 accounts-ui
-orionjs:pages
 nicolaslopezj:roles

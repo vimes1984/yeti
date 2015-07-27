@@ -4,5 +4,4 @@ angular.module('yetibox').controller('HomeCtrl', ['$scope', '$meteor', function(
         $scope.test = "teststst";
       //  $scope.pages = $meteor.collection('pages', false).subscribe('pages');
 
-        console.log($meteor);
 }]);

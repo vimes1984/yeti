@@ -2,6 +2,12 @@
   <base href="/">
 </head>
 <body ng-app="yetibox">
-<!--Iron router pulls in template names mainview.html here-->
-
+{{> topbar}}
+<div class="row">
+  <div class="large-12 columns">
+    <div ui-view></div>
+  </div>
+</div>
+{{> footer}}
+{{initFoundation}}
 </body>
