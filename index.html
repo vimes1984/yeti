@@ -1,23 +1,6 @@
+<head>
+  <base href="/">
+</head>
 <body ng-app="yetibox" ng-controller="maincontroller">
-
-  <div class="row">
-    <div class="large-12 columns">
-      <p class="text-right">{{> loginButtons align="right"}}</p>
-    </div>
-  </div>
-  {{> example}}
-  {{> pagesSimple}}
-  {{initFoundation}}
+<!--Iron router pulls in template names uiview.html here-->
 </body>
-
-
-<template name="example">
-<h1>{{ dict 'site.description' 'No description' }}</h1>
-</template>
-
-<template name="pagesSimple">
-    <h1 class="title">{{ title }}</h1>
-    <div class="content">
-        {{{ content }}}
-    </div>
-</template>
