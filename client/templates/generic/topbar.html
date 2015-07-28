@@ -1,14 +1,13 @@
 <template name="topbar">
-  <div class="sticky">
+  <div class="sticky" ng-controller="topbarcntroller">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/"><img src="" alt=""></a></h1>
+          <h1><a href="/"><img src="/imgs/yeti.png" alt=""></a></h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
@@ -34,8 +33,20 @@
           <li><a href="/help">Help</a></li>
           <li><a href="/cruthadaire">Cruthadaire</a></li>
           <li><a href="/blog">Blog</a></li>
+            <li class="has-dropdown" ng-if="$root.currentUser">
+              <a href="#">{{ currentUser.profile.name }}</a>
+              <ul class="dropdown">
+                <li><a href="/my-account">My Account</a></li>
+                <li><a href="#" ng-click="signOut()">Sign out</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown" ng-if="!$root.currentUser">
+              <a href="/sign-in">Sign In</a>
+              <ul class="dropdown">
+                <li><a href="/register">Register</a></li>
+              </ul>
+            </li>
         </ul>
-
         <!-- Left Nav Section -->
         <ul class="left">
           <li>{{> loginButtons}}</li>
