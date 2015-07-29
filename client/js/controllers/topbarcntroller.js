@@ -5,9 +5,7 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
   $scope.signOut   = function(){
     $meteor.logout().then(function(){
           $state.go('home');
-      }, function(err){
-        console.log('logout error - ', err);
-      });
+      }, function(err){});
   };
 
 

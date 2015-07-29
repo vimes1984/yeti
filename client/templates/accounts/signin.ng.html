@@ -1,8 +1,20 @@
 <form>
   <h2>Sign in</h2>
+  <div data-alert class="alert-box alert" ng-show="showerror">
+    <h1>{{error.reason}}</h1>
+    <a href="#" class="close">&times;</a>
+  </div>
   <input type="text" class="" placeholder="Username" value="user.name" ng-model="user.name"/>
   <input type="password" class="" placeholder="Password" value="user.password" ng-model="user.password"/>
   <button class="button expand" ng-click="signin()">
     Sign in
   </button>
+  <div class="row">
+    <div class="large-6 columns">
+      <a href="#/resetpassword" class="button expand">Reset Password</a>
+    </div>
+    <div class="large-6 columns">
+      <a href="#/resetpassword" class="button expand">Reset Password</a>
+    </div>
+  </div>
 </form>

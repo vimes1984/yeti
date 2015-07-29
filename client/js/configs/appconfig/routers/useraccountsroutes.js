@@ -13,6 +13,11 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
         templateUrl: 'client/templates/accounts/register.ng.html',
         controller: 'registerCtrl'
     })
+    .state('resetpassword', {
+        url: '/resetpassword',
+        templateUrl: 'client/templates/accounts/resetpassword.ng.html',
+        controller: 'resetpasswordCtrl'
+    })
     .state('account', {
         url: '/my-account',
         templateUrl: 'client/templates/accounts/myaccount.ng.html',
@@ -23,6 +28,7 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
               }]
             }
     });
+
 }]);
 angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $state) {
   $rootScope.$on('$stateChangeStart', function(){
