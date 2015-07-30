@@ -15,7 +15,7 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
     })
     .state('resetpassword', {
         url: '/resetpassword',
-        templateUrl: 'client/templates/accounts/resetpassword.ng.html',
+        templateUrl: 'client/templates/accounts/resetpass.ng.html',
         controller: 'resetpasswordCtrl'
     })
     .state('account', {

@@ -1,8 +1,18 @@
 //resetpasswordCtrl controller
-angular.module('yetibox').controller('resetpasswordCtrl', ['$scope', function($scope){
+angular.module('yetibox').controller('resetpasswordCtrl', ['$scope', '$meteor', function($scope, $meteor){
 
-  $scope.resetSend = function(){
-
+  $scope.resetpassword = function(){
+    $meteor.forgotPassword({email: $scope.email}).then(function(){
+        console.log('Success sending forgot password email');
+        $scope.showalert    = true;
+        $scope.alertclass   = 'success';
+        $scope.message      = 'Email sent to '+ $scope.email +' to reset your password';
+      }, function(err){
+        $scope.showalert    = true;
+        $scope.alertclass   = 'alert';
+        $scope.message      = err.reason;
+        console.log('Error sending forgot password email - ', err);
+      });
   };
 
 }]);
