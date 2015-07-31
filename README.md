@@ -13,4 +13,6 @@ The Abhar     = Editors
 
 The Champion  =  Contribuitor
 
-The Heros     = Subscirbers/Clients/Users
+The Heros     = Made men
+
+The Members   = User
