@@ -14,9 +14,29 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
         controller: 'registerCtrl'
     })
     .state('resetpassword', {
-        url: '/resetpassword',
+        url: '/resetpassword/:token',
         templateUrl: 'client/templates/accounts/resetpass.ng.html',
         controller: 'resetpasswordCtrl'
+    })
+    .state('requestresetpasswordCtrl', {
+        url: '/requestresetpassword',
+        templateUrl: 'client/templates/accounts/requestresetpassword.ng.html',
+        controller: 'requestresetpasswordCtrl'
+    })
+    .state('changepass', {
+        url: '/changepass',
+        templateUrl: 'client/templates/accounts/changepass.ng.html',
+        controller: 'changepassctrl',
+        resolve: {
+              "currentUser": ["$meteor", function($meteor){
+                return $meteor.requireUser();
+              }]
+            }
+    })
+    .state('verifyemail', {
+        url: '/verifyemail/:token',
+        templateUrl: 'client/templates/accounts/verifyemail.ng.html',
+        controller: 'verifyEmailctrl'
     })
     .state('account', {
         url: '/my-account',

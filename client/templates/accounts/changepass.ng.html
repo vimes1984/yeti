@@ -1,9 +1,9 @@
 <div class="row">
   <div class="large-6 columns large-centered">
-    <h2>Request password reset</h2>
+    <h2>Introduce your new password</h2>
     <form>
-      <input type="password" placeholder="New Password" ng-model="pass" />
-      <button class="button expand" ng-click="resetpassword()">Reset Password</button>
+      <input type="email"      ng-model="newuser.email"       placeholder="Email" value=""/>
+      <button class="button expand" ng-click="register()">Reset Now</button>
     </form>
     <div data-alert class="alert-box" ng-class="alertclass" ng-show="showalert">
       <p>{{message}}</p>
