@@ -11,7 +11,7 @@ The Amadan    = Admin
 
 The Abhar     = Editors
 
-The Champion  =  Contribuitor
+The Champion  = Contribuitor
 
 The Heros     = Made men
 

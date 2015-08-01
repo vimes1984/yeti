@@ -33,6 +33,16 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
               }]
             }
     })
+    .state('blockly', {
+        url: '/blockly',
+        templateUrl: 'client/templates/accounts/blockly.ng.html',
+        controller: 'blocklyctrl',
+        resolve: {
+              "currentUser": ["$meteor", function($meteor){
+                return $meteor.requireUser();
+              }]
+            }
+    })
     .state('verifyemail', {
         url: '/verifyemail/:token',
         templateUrl: 'client/templates/accounts/verifyemail.ng.html',
