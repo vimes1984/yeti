@@ -3,37 +3,41 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
   function($scope, $meteor, $rootScope, Blockly, $timeout, $stateParams){
 
   var getworkspace    = $rootScope.currentUser.profile.blockly[parseInt($stateParams.id)];
-  var workspacetoser  = angular.fromJson(getworkspace);
   $scope.blockname    = getworkspace.title;
-  console.log( getworkspace );
 
   // This is wrapped in timeout to allow the directive to load.
-  console.log( $stateParams.id );
-
 
   $timeout(function () {
-      Blockly.setWorkspace(workspacetoser);
+
+      document.getElementById('source').innerHTML = getworkspace.workspace;
+      Blockly.setWorkspace( angular.fromJson( getworkspace.workspace ) );
+  }, 10);
+  $timeout(function () {
+
       Blockly.onChange(function (workspace) {
+          console.log(workspace);
           document.getElementById('source').innerHTML = angular.toJson(workspace, true);
       });
   }, 0);
   $scope.SaveToaccount = function(){
     var workspace                             = Blockly.getWorkspace();
     var blockname                             = $scope.blockname;
+    workspace.block[0].workspace              = angular.toJson(workspace);
     workspace.block[0].title                  = blockname;
     workspace.block[0].pageid                 = $stateParams.id;
     var newblock                              = {};
 
+    console.log( Blockly.saveToJS(workspace) )
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
-    console.log( $stateParams.id )
 
     Meteor.users.update(
       {_id: Meteor.userId()},
       { $set: newblock}
     );
-
+    $scope.showalert    = true;
+    $scope.alertclass   = 'success';
+    $scope.message      = 'Saved to account';
     $scope.distitle = false;
-    console.log( $rootScope.currentUser );
 
   };
 

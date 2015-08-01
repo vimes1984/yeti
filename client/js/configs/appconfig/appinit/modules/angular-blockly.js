@@ -36,7 +36,6 @@ angular.module("angular-blockly", [])
                 Blockly.getMainWorkspace().clear();
             }
             Blockly.Json.setWorkspace(Blockly.getMainWorkspace(), workspace);
-
             // Blockly sends an immediate change - we want to filter this out
             me.holdoffChanges = true;
             $timeout(function () {
@@ -49,7 +48,9 @@ angular.module("angular-blockly", [])
                 Blockly.getMainWorkspace().clear();
             }
         };
-
+        this.saveToJS     = function(workspace){
+          return workspace;
+        }
         this.getWorkspace = function () {
             return Blockly.Json.getWorkspace(Blockly.getMainWorkspace());
         };

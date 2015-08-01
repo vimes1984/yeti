@@ -149,7 +149,7 @@ Blockly.Json.blockToDom_ = function (block) {
 Blockly.Json.setWorkspace = function (workspace, json) {
     var width = Blockly.svgSize().width;
     if (json == null || json.block == null)
-        return;
+        return;      
     var blocks = [].concat(json.block);
     for (var x = 0; x < blocks.length; x++) {
         var child = blocks[x];

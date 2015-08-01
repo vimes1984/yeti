@@ -17,6 +17,7 @@ angular.module('yetibox').controller('NewBlocklyCtrl', ['$scope', '$meteor', '$r
   $scope.SaveToaccount = function(){
     var workspace                             = Blockly.getWorkspace();
     var blockname                             = $scope.blockname;
+    workspace.block[0].workspace              = angular.toJson(workspace);    
     workspace.block[0].title                  = blockname;
     workspace.block[0].pageid                 = blockCount;
     var newblock                              = {};
@@ -28,7 +29,9 @@ angular.module('yetibox').controller('NewBlocklyCtrl', ['$scope', '$meteor', '$r
       {_id: Meteor.userId()},
       { $set: newblock}
     );
-
+        $scope.showalert    = true;
+        $scope.alertclass   = 'success';
+        $scope.message      = 'Saved to account';
     $scope.distitle = false;
     console.log( $rootScope.currentUser );
 
