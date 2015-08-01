@@ -8,8 +8,9 @@ angular.module('yetibox').controller('registerCtrl', ['$scope', '$meteor', '$sta
           password:    $scope.newuser.password,
           profile: {
             name:       $scope.newuser.name,
-            additional: $scope.newuser.additional
-          }
+            additional: $scope.newuser.additional,
+            blockly: []
+          },
         }).then(function(){
         $state.go('account');
       }, function(err){
