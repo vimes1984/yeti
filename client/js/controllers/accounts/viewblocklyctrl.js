@@ -29,7 +29,6 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     var tojs                                  = Blockly.saveToJS(workspace);
     workspace.block[0].jscodejson             = JSON.stringify(tojs);
 
-    console.log( JSON.stringify(tojs) );
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
 
     Meteor.users.update(
@@ -40,6 +39,8 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     $scope.alertclass   = 'success';
     $scope.message      = 'Saved to account';
     $scope.distitle = false;
+
+    console.log( $rootScope.currentUser );
 
   };
 
