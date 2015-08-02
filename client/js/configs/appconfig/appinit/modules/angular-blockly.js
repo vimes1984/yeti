@@ -49,7 +49,8 @@ angular.module("angular-blockly", [])
             }
         };
         this.saveToJS     = function(workspace){
-          return workspace;
+          var code = Blockly.JavaScript.workspaceToCode(workspace);
+          return code;
         }
         this.getWorkspace = function () {
             return Blockly.Json.getWorkspace(Blockly.getMainWorkspace());
