@@ -27,8 +27,9 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     workspace.block[0].pageid                 = $stateParams.id;
     var newblock                              = {};
     var tojs                                  = Blockly.saveToJS(workspace);
+    workspace.block[0].jscodejson             = JSON.stringify(tojs);
 
-    console.log( JSON.stringify(tojs) )
+    console.log( JSON.stringify(tojs) );
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
 
     Meteor.users.update(
