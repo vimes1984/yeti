@@ -17,6 +17,15 @@ angular.module('yetibox').config(['ngBlocklyProvider', function myAppConfig(ngBl
                     ]
                 },
                 {
+                    name: "Loops",
+                    blocks: [
+                        {type: "controls_repeat"},
+                        {type: "controls_repeat_ext"},
+                        {type: "controls_whileUntil"},
+                        {type: "controls_for"}
+                    ]
+                },
+                {
                     name: "Math",
                     blocks: [
                         {type: "math_number"},
