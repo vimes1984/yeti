@@ -1,4 +1,4 @@
-//resetpasswordCtrl controller
+//Reset password Ctrl controller
 angular.module('yetibox').controller('resetpasswordCtrl', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams){
 
     console.log($stateParams);
