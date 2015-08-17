@@ -1,4 +1,4 @@
-angular.module('yetibox', ['angular-meteor', 'ui.router', 'angular-blockly']);
+angular.module('yetibox', ['angular-meteor', 'ui.router', 'angular-blockly', 'adminui']);
 Meteor.subscribe('pages');
 
 angular.module('yetibox').config(['ngBlocklyProvider', function myAppConfig(ngBlocklyProvider) {
