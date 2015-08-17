@@ -1,0 +1,98 @@
+server {
+	server_name yeti;
+	listen 80;
+	listen [::]:80 ipv6only=on;
+
+	#server_name localhost;
+	#listen 80 default_server;
+	#listen [::]:80 default_server ipv6only=on;
+
+	#error_log /var/log/nginx/debug.log debug;
+
+	# redirect server error pages to the static page /50x.html
+	#
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /usr/share/nginx/html;
+	}
+	error_page 404 /404.html;
+
+    charset     utf-8;
+
+    # max upload size
+    client_max_body_size 200M;   # adjust to taste
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	location ~ /\.ht {
+		deny all;
+	}
+
+	# This is for the robots.txt file used by search engines.
+	location = /robots.txt {
+		# If you have one, you want to allow them access to it.
+		allow all;
+		# If you don't have one, you don't want to fill your logs with
+		# not found errors.
+		log_not_found off;
+		access_log off;
+	}
+
+	# Very rarely should these ever be accessed outside of your lan
+	# The above location for robots.txt is an exact match and will override
+	# this location block.
+	location ~* \.(txt|log)$ {
+		allow 192.168.0.0/16;
+		deny all;
+	}
+
+	# In some cases a favicon does not exist but this is not something you
+	# normally need to worry about. It's also a microscopic image and will
+	# just clutter the logs.
+	location = /favicon.ico {
+	    root /home/growlf/meteor/yeti/public/images/favicon/;
+		log_not_found off;
+		access_log off;
+	}
+
+    # with-http_stub_status_module
+    #location /nginx_status {
+    #    stub_status on;
+    #    access_log   off;
+    #    allow 192.168.0.0/16;
+    #    deny all;
+    #}
+
+    # Django MEDIA_ROOT
+    location /media {
+        # Only leave this option enabled during development/testing
+        autoindex on;
+
+        # Point this wherever the media files for your django app are stored (i.e. MEDIA_ROOT)
+        alias /home/growlf/meteor/yeti/public/;
+        expires 30d;
+        break;
+    }
+
+    # Django through uWSGI
+    location / {
+
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade; # allow websockets
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header X-Forwarded-For $remote_addr; # preserve client IP
+
+        # this setting allows the browser to cache the application in a way compatible with Meteor
+        # on every applicaiton update the name of CSS and JS file is different, so they can be cache infinitely (here: 30 days)
+        # the root path (/) MUST NOT be cached
+        if ($uri != '/') {
+            expires 30d;
+        }
+
+        if ($filename ~* ^.*?\.(eot)|(ttf)|(woff)$){
+             add_header Access-Control-Allow-Origin *;
+        }
+    }
+}
