@@ -94,10 +94,12 @@ angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $sta
       if($rootScope.currentUser != null){
         var getcuurentuser    = $rootScope.currentUser.roles[0];
       }else{
+        event.preventDefault();
         $state.go('home');
 
       }
       if(getcuurentuser != 'druidae'){
+        event.preventDefault();
 
         $state.go('home');
 

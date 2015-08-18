@@ -10,7 +10,7 @@
       </ul>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
-        <ul class="left"  ng-show="showadminurl">
+        <ul class="left"  ng-show="showadminurl" ng-if="$root.currentUser">
           <li><a href="/admin/dashboard">Admin</a></li>
         </ul>
         <ul class="right">
