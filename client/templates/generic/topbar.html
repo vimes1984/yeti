@@ -10,8 +10,10 @@
       </ul>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
+        <ul class="left"  ng-if="$root.currentUser">
+          <li><a href="/admin/dashboard">Admin</a></li>
+        </ul>
         <ul class="right">
-          <li><a href="/admin">Admin</a></li>
           <li class="has-dropdown">
             <a href="#">The universes</a>
             <ul class="dropdown">
@@ -34,12 +36,13 @@
           <li><a href="/help">Help</a></li>
           <li><a href="/cruthadaire">Cruthadaire</a></li>
           <li><a href="/blog">Blog</a></li>
-            <li class="has-dropdown" ng-if="$root.currentUser">
+          <li class="has-dropdown" ng-if="$root.currentUser">
               <a href="#">{{ currentUser.profile.name }}</a>
               <ul class="dropdown">
                 <li><a href="/myblockly">My Blockly</a></li>
                 <li><a href="/my-account">My Account</a></li>
-                <li><a href="#" ng-click="signOut()">Sign out</a></li>
+                <li><a href="#" ng-click="signOut()">Sign out</a></li>234
+
               </ul>
             </li>
             <li class="has-dropdown" ng-if="!$root.currentUser">

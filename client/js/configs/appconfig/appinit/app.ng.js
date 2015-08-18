@@ -1,5 +1,4 @@
 angular.module('yetibox', ['angular-meteor', 'ui.router', 'angular-blockly', 'adminui']);
-Template.customadmin.replaces("admin");
 
 Meteor.subscribe('pages');
 
