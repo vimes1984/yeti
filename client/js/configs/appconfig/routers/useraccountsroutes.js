@@ -82,10 +82,11 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
 }]);
 angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $state) {
 
-  $rootScope.$on('$stateChangeSuccess', function(){
+
+  $rootScope.$on('$viewContentLoaded', function(event){
+    console.log('test');
     $(document).foundation('reflow');
   });
-
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
 
     if(toState.name === 'admin.dashboard' || toState.name === 'admin.viewallusers' || toState.name === 'admin.editusers' || toState.name === 'admin'){

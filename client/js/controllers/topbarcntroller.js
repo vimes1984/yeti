@@ -5,6 +5,7 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
   $scope.signOut   = function(){
     $meteor.logout().then(function(){
           $state.go('home');
+          $(document).foundation('reflow');
       }, function(err){});
   };
 
@@ -19,7 +20,6 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
       $scope.showadminurl = true;
     }else{
       $scope.showadminurl = false;
-
     }
   };
   $scope.showhideadminbar();
