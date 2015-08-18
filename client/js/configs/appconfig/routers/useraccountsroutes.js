@@ -81,8 +81,29 @@ angular.module('yetibox').config(['$urlRouterProvider', '$stateProvider', '$loca
 
 }]);
 angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $state) {
-  $rootScope.$on('$stateChangeStart', function(){
+
+  $rootScope.$on('$stateChangeSuccess', function(){
     $(document).foundation('reflow');
+  });
+
+  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+
+    if(toState.name === 'admin.dashboard' || toState.name === 'admin.viewallusers' || toState.name === 'admin.editusers' || toState.name === 'admin'){
+
+      if($rootScope.currentUser != null){
+        var getcuurentuser    = $rootScope.currentUser.roles[0];
+      }else{
+        $state.go('home');
+
+      }
+      if(getcuurentuser != 'druidae'){
+
+        $state.go('home');
+
+      }
+
+    }
+
   });
   $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
     // We can catch the error thrown when the $meteor.requireUser() promise is rejected

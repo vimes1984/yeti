@@ -16,7 +16,7 @@ Roles.createRole('member');//User user type
 
 //Super adim users
 var SuperAdminUsers = [
-  {_id: 'aTJZPtMz6Mm48Gskh'},
+  {_id: 'TPHC76qLW9w9agoyv'},
   {_id: 'xNYQkYJdkLYQPeNzE'}
 
 ];
@@ -26,7 +26,7 @@ Roles.addUsersToRoles(
 );
 //Admin users
 var AdminUsers = [
-  {_id: ''}
+  {_id: 'JYvQiEanr2XYQCZeB'}
 ];
 Roles.addUsersToRoles(
   AdminUsers,

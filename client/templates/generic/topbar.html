@@ -10,7 +10,7 @@
       </ul>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
-        <ul class="left"  ng-if="$root.currentUser">
+        <ul class="left"  ng-show="showadminurl">
           <li><a href="/admin/dashboard">Admin</a></li>
         </ul>
         <ul class="right">
@@ -41,7 +41,7 @@
               <ul class="dropdown">
                 <li><a href="/myblockly">My Blockly</a></li>
                 <li><a href="/my-account">My Account</a></li>
-                <li><a href="#" ng-click="signOut()">Sign out</a></li>234
+                <li><a href="#" ng-click="signOut()">Sign out</a></li>
 
               </ul>
             </li>
