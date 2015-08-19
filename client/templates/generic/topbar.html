@@ -36,19 +36,14 @@
           <li><a href="/help">Help</a></li>
           <li><a href="/cruthadaire">Cruthadaire</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li class="has-dropdown" ng-if="$root.currentUser">
-              <a href="#">{{ currentUser.profile.name }}</a>
+          <li class="has-dropdown" >
+              <a href="#" ng-if="showmenu">{{ currentUser.profile.name }}</a>
+              <a href="/sign-in" ng-if="!showmenu">Sign In</a>
               <ul class="dropdown">
-                <li><a href="/myblockly">My Blockly</a></li>
-                <li><a href="/my-account">My Account</a></li>
-                <li><a href="#" ng-click="signOut()">Sign out</a></li>
-
-              </ul>
-            </li>
-            <li class="has-dropdown" ng-if="!$root.currentUser">
-              <a href="/sign-in">Sign In</a>
-              <ul class="dropdown">
-                <li><a href="/register">Register</a></li>
+                <li><a href="/myblockly" ng-if="showmenu">My Blockly</a></li>
+                <li><a href="/my-account" ng-if="showmenu">My Account</a></li>
+                <li><a href="#" ng-click="signOut()" ng-if="showmenu">Sign out</a></li>
+                <li><a href="/register" ng-if="!showmenu">Register</a></li>
               </ul>
             </li>
         </ul>

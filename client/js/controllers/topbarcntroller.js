@@ -8,7 +8,16 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
           $(document).foundation('reflow');
       }, function(err){});
   };
+  console.log($rootScope.currentUser);
+  $scope.$watch($rootScope.currentUser,function(){
 
+    if($rootScope.currentUser){
+      $scope.showmenu = true;
+    }else{
+      $scope.showmenu = false;
+    }
+      $(document).foundation('reflow');
+  });
   $scope.showhideadminbar = function(){
     //no user not logged in
     if($rootScope.currentUser === null){
