@@ -13,19 +13,25 @@ Roles.createRole('champion');//Contribuitor user type
 Roles.createRole('heros');//'Made men' user type
 Roles.createRole('member');//User user type
 */
-
 //Super adim users
 var SuperAdminUsers = [
-  {_id: 'WqHzKPWF8bSDRNZq5'},
-  {_id: 'xNYQkYJdkLYQPeNzE'}
+  {_id: 'qYYMrXdrC8ddtbiN2'},
 ];
 Roles.addUsersToRoles(
   SuperAdminUsers,
+  ['super-admin']
+);
+//Super adim users
+var druidaeUsers = [
+  {_id: ''}
+];
+Roles.addUsersToRoles(
+  druidaeUsers,
   ['druidae']
 );
 //Admin users
 var AdminUsers = [
-  {_id: 'JYvQiEanr2XYQCZeB'}
+  {_id: ''}
 ];
 Roles.addUsersToRoles(
   AdminUsers,

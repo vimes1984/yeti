@@ -25,7 +25,7 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
       return;
     }
     //user check if they are Superadmin
-    if($rootScope.currentUser.roles[0] === 'druidae'){
+    if($rootScope.currentUser.roles[0] === 'druidae' || $rootScope.currentUser.roles[0] === 'super-admin'){
       $scope.showadminurl = true;
     }else{
       $scope.showadminurl = false;

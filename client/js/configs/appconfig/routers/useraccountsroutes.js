@@ -92,21 +92,21 @@ angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $sta
     if(toState.name === 'admin.dashboard' || toState.name === 'admin.viewallusers' || toState.name === 'admin.editusers' || toState.name === 'admin'){
 
       if($rootScope.currentUser != null){
-        var getcuurentuser    = $rootScope.currentUser.roles[0];
+        var getcuurentuser    = $rootScope.currentUser.roles[1];
       }else{
         event.preventDefault();
         $state.go('home');
 
       }
-      if(getcuurentuser != 'druidae'){
-        event.preventDefault();
+      user = Meteor.user();
+      if (Roles.userIsInRole(user, 'super-admin')) {
 
+      }else{
+        event.preventDefault();
         $state.go('home');
 
       }
-
     }
-
   });
   $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
     // We can catch the error thrown when the $meteor.requireUser() promise is rejected
