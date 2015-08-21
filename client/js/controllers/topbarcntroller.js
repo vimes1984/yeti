@@ -10,11 +10,13 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
   };
   console.log($rootScope.currentUser);
   $scope.$watch($rootScope.currentUser,function(){
+    var loggedInUser = Meteor.user()
 
-    if($rootScope.currentUser){
-      $scope.showmenu = true;
-    }else{
+    if (!loggedInUser) {
       $scope.showmenu = false;
+    }else{
+      $scope.showmenu = true;
+
     }
       $(document).foundation('reflow');
   });
@@ -25,11 +27,15 @@ angular.module('yetibox').controller('topbarcntroller', ['$scope', '$meteor', '$
       return;
     }
     //user check if they are Superadmin
-    if($rootScope.currentUser.roles[0] === 'druidae' || $rootScope.currentUser.roles[0] === 'super-admin'){
+    var loggedInUser = Meteor.user();
+    if (Roles.userIsInRole(loggedInUser, 'super-admin')) {
       $scope.showadminurl = true;
+
     }else{
+
       $scope.showadminurl = false;
     }
+
   };
   $scope.showhideadminbar();
 
