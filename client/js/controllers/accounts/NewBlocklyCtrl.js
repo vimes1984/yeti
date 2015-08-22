@@ -15,17 +15,18 @@ angular.module('yetibox').controller('NewBlocklyCtrl', ['$scope', '$meteor', '$r
 
 
   $scope.SaveToaccount = function(){
-    var workspace                             = Blockly.getWorkspace();
-    var blockname                             = $scope.blockname;
-    workspace.block[0].workspace              = angular.toJson(workspace);
-    workspace.block[0].title                  = blockname;
-    workspace.block[0].pageid                 = blockCount;
-    var newblock                              = {};
-    var tojs                                  = Blockly.saveToJS(workspace);
-    workspace.block[0].jscodejson             = JSON.stringify(tojs);
+    var workspace                          = Blockly.getWorkspace();
+    var blockname                          = $scope.blockname;
+    var savearray                          = {};
+    savearray.workspace                    = angular.toJson(workspace);
+    savearray.title                        = blockname;
+    savearray.pageid                       = blockCount;
+    var newblock                           = {};
+    var tojs                               = Blockly.saveToJS(workspace);
+    savearray.jscodejson                   = JSON.stringify(tojs);
     console.log( Blockly.saveToJS(workspace) )
 
-    newblock["profile.blockly." + blockCount] = workspace.block[0];
+    newblock["profile.blockly." + blockCount] = savearray;
     console.log( blockCount )
 
     Meteor.users.update(
