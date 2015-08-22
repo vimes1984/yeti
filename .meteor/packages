@@ -8,10 +8,10 @@ meteor-platform
 autopublish
 insecure
 urigo:angular
-matthew:foundation5-sass
-fortawesome:fontawesome
 angularui:angular-ui-router
 urigo:angular-ui-router
+matthew:foundation5-sass
+fortawesome:fontawesome
 accounts-facebook
 google
 twitter
