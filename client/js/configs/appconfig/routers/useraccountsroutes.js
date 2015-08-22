@@ -84,7 +84,6 @@ angular.module('yetibox').run(["$rootScope", "$state", function($rootScope, $sta
 
 
   $rootScope.$on('$viewContentLoaded', function(event){
-    console.log('test');
     $(document).foundation('reflow');
   });
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
