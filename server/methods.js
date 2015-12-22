@@ -3,7 +3,7 @@
  */
 
 Meteor.methods({
-    saveToFile: function(ARG){
+    saveToFile: function(arg){
         console.log(arg);
     }
 });
