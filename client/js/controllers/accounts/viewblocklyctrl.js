@@ -56,10 +56,9 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
 
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
 
-    Meteor.users.update(
-      {_id: Meteor.userId()},
-      { $set: newblock}
-    );
+    // Save to file
+
+
     $scope.showalert    = true;
     $scope.alertclass   = 'success';
     $scope.message      = 'Saved to account';
