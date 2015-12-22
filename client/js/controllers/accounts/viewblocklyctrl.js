@@ -55,7 +55,7 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     workspace.block[0].jscodejson             = JSON.stringify(tojs);
 
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
-
+    var arg = 'test';
     // Save to file
     $meteor.call('saveToFile', arg).then(
         function(data){
