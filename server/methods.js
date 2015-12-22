@@ -5,10 +5,12 @@
 Meteor.methods({
     saveToFile: function(arg){
         console.log(arg);
+
         var fileSave = Meteor.npmRequire("file-save");
-    //    var file = fileSave('xyzzy.js');
-    //    file.write(arg, 'utf8');
-    //    file.end();
+
+        //    var file = fileSave('xyzzy.js');
+        //    file.write(arg, 'utf8');
+        //    file.end();
 
 
         fileSave('xyzzy.js')
