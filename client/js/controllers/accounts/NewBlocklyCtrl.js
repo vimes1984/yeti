@@ -24,10 +24,10 @@ angular.module('yetibox').controller('NewBlocklyCtrl', ['$scope', '$meteor', '$r
     var newblock                           = {};
     var tojs                               = Blockly.saveToJS(workspace);
     savearray.jscodejson                   = JSON.stringify(tojs);
-    console.log( Blockly.saveToJS(workspace) )
+    console.log( Blockly.saveToJS(workspace) );
 
     newblock["profile.blockly." + blockCount] = savearray;
-    console.log( blockCount )
+    console.log( blockCount );
 
     Meteor.users.update(
       {_id: Meteor.userId()},
