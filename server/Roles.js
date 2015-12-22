@@ -13,15 +13,16 @@ Roles.createRole('champion');//Contribuitor user type
 Roles.createRole('heros');//'Made men' user type
 Roles.createRole('member');//User user type
 */
-//Super adim users
+//Super admin users
 var SuperAdminUsers = [
   {_id: 'e937fpPLz7jTyZXza'},
+  {_id: 'ft9myddEGdkyWaFYk'}
 ];
 Roles.addUsersToRoles(
   SuperAdminUsers,
   ['super-admin']
 );
-//Super adim users
+//Admin users
 var druidaeUsers = [
   {_id: ''}
 ];

@@ -44,4 +44,29 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
 
   };
 
+  $scope.SaveToFile = function(){
+    var workspace                             = Blockly.getWorkspace();
+    var blockname                             = $scope.blockname;
+    workspace.block[0].workspace              = angular.toJson(workspace);
+    workspace.block[0].title                  = blockname;
+    workspace.block[0].pageid                 = $stateParams.id;
+    var newblock                              = {};
+    var tojs                                  = Blockly.saveToJS(workspace);
+    workspace.block[0].jscodejson             = JSON.stringify(tojs);
+
+    newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
+
+    Meteor.users.update(
+      {_id: Meteor.userId()},
+      { $set: newblock}
+    );
+    $scope.showalert    = true;
+    $scope.alertclass   = 'success';
+    $scope.message      = 'Saved to account';
+    $scope.distitle = false;
+
+    console.log( $rootScope.currentUser );
+
+  };
+
 }]);

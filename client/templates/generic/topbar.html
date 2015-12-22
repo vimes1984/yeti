@@ -37,7 +37,7 @@
           <li><a href="/cruthadaire">Cruthadaire</a></li>
           <li><a href="/blog">Blog</a></li>
           <li class="has-dropdown" >
-              <a href="#" ng-if="showmenu">{{ currentUser.profile.name }}</a>
+              <a href="#" ng-if="showmenu">[[ currentUser.profile.name ]]</a>
               <a href="/sign-in" ng-if="!showmenu">Sign In</a>
               <ul class="dropdown">
                 <li><a href="/myblockly" ng-if="showmenu">My Blockly</a></li>
