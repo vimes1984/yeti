@@ -60,6 +60,7 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     $meteor.call('saveToFile', tojs).then(
         function(data){
           // success
+          console.log(data);
         },
         function(err){
           // failure
