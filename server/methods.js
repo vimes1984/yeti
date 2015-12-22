@@ -5,5 +5,6 @@
 Meteor.methods({
     saveToFile: function(arg){
         console.log(arg);
+        var file = fileSave('test.js');
     }
 });
