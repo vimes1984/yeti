@@ -44,7 +44,7 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
 
   };
 
-  $scope.SaveToFile = function(){
+  $scope.saveToFile = function(){
     var workspace                             = Blockly.getWorkspace();
     var blockname                             = $scope.blockname;
     workspace.block[0].workspace              = angular.toJson(workspace);
@@ -57,7 +57,14 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
     newblock["profile.blockly." + $stateParams.id] = workspace.block[0];
 
     // Save to file
-
+    $meteor.call('saveToFile', arg).then(
+        function(data){
+          // success
+        },
+        function(err){
+          // failure
+        }
+    );
 
     $scope.showalert    = true;
     $scope.alertclass   = 'success';
