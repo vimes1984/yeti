@@ -5,5 +5,5 @@
 Meteor.methods({
     saveToFile: function(ARG){
         console.log(arg);
-    };
+    }
 });
