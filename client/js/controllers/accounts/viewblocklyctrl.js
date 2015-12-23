@@ -8,17 +8,18 @@ angular.module('yetibox').controller('viewblocklyctrl', ['$scope', '$meteor', '$
   // This is wrapped in timeout to allow the directive to load.
 
   $timeout(function () {
-
       document.getElementById('source').innerHTML = getworkspace.workspace;
       Blockly.setWorkspace( angular.fromJson( getworkspace.workspace ) );
   }, 10);
-  $timeout(function () {
 
+  $timeout(function () {
       Blockly.onChange(function (workspace) {
           console.log(workspace);
-          document.getElementById('source').innerHTML = angular.toJson(workspace, true);
+          //document.getElementById('source').innerHTML = angular.toJson(workspace, true);
+          document.getElementById('source').innerHTML = Blockly.saveToJS(workspace);
       });
   }, 0);
+
   $scope.SaveToaccount = function(){
     var workspace                             = Blockly.getWorkspace();
     var blockname                             = $scope.blockname;
